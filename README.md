@@ -3,16 +3,17 @@
 ## Prerequisite
 
 * Ruby 2.7
-## License
-MIT License
-## How to run
 
 ```bash
 ruby details.rb 9080
 ```
+
 ## How to run with Docker
 
 ```bash
+# Build Docker Image for rating service
 docker build -t details .
-docker run -d --name details -p 8081:8081 details
-```
+
+# Run itkmitl-bookinfo-details on port 8081
+docker run -d -p 8081:9080 -e ENABLE_EXTERNAL_BOOK_SERVICE=true details
+

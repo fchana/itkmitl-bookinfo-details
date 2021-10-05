@@ -1,9 +1,13 @@
-FROM ruby:2.7.4
+FROM ruby:2.7-slim
 
-WORKDIR /usr/src/app/
+# throw errors if Gemfile has been modified since Gemfile.lock
+RUN bundle config --global frozen 1
 
-COPY src/ /usr/src/app/
+WORKDIR  /home/src/app/
 
-EXPOSE 8081
+COPY src/ /home/src/app/
+RUN bundle install
 
-CMD ["ruby", "details.rb", "8081"]
+EXPOSE 9080
+
+CMD ["ruby","/home/src/app/details.rb","9080"]
