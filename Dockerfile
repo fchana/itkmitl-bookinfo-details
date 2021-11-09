@@ -8,6 +8,6 @@ WORKDIR  /home/src/app/
 COPY src/ /home/src/app/
 RUN bundle install
 
-EXPOSE 9080
+EXPOSE 8081
 
-CMD ["ruby","/home/src/app/details.rb","9080"]
+CMD ["ruby","/home/src/app/details.rb","8081"]
